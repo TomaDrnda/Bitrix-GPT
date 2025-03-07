@@ -13,4 +13,4 @@ def webhook():
         return jsonify({"status": "ok", "message": "Hello from Vercel!"})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
