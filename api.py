@@ -1,16 +1,14 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/webhook", methods=["GET", "POST"])
+@app.route("/webhook", methods=["POST"])
 def webhook():
-    if request.method == "GET":
-        return jsonify({"status": "ok", "message": "Webhook endpoint is working!"})
-
-    if request.method == "POST":
-        data = request.json
-        print("Received data:", data)
-        return jsonify({"status": "ok", "message": "Hello from Vercel!"})
+    data = request.json
+    print("Received data:", data)
+    return jsonify({"status": "ok", "message": "Hello from Vercel!"})
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)

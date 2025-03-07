@@ -1,7 +1,5 @@
 {
   "version": 2,
   "builds": [{ "src": "api.py", "use": "@vercel/python" }],
-  "routes": [
-    { "src": "/webhook", "dest": "api.py", "methods": ["GET", "POST"], "headers": { "Access-Control-Allow-Origin": "*" } }
-  ]
+  "routes": [{ "src": "/webhook", "dest": "api.py" }]
 }
